@@ -1,8 +1,53 @@
-1 & 0.5380 & 0.7369 & 0.4771 & 0.7394 \\ \hline 4 & 0.3156 & 0.8652 & 0.3400 &
-0.8485 \\ \hline 8 & 0.2236 & 0.9196 & 0.2419 & 0.9076 \\ \hline 10 & 0.2085 &
-0.9242 & 0.2522 & 0.9015 \\ 1 & 0.6699 & 0.8658 & 0.2077 & 0.9576 \\ \hline 4 &
-0.0948 & 0.9767 & 0.2403 & 0.9500 \\ \hline 8 & 0.0503 & 0.9825 & 0.2478 &
-0.9545 \\ \hline 10 & 0.0421 & 0.9857 & 0.2221 & 0.9606 \\ \hline 1 & 0.5982 &
-0.6986 & 0.3864 & 0.8182 \\ \hline 4 & 0.2413 & 0.9034 & 0.2385 & 0.9106 \\
-\hline 8 & 0.1678 & 0.9307 & 0.3285 & 0.8788 \\ \hline 10 & 0.1267 & 0.9482 &
-0.2841 & 0.8939 \\ \hline
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fire Detection</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container text-center">
+      <h1 class="jumbotron bg-primary">Fire Detection</h1>
+      <br /><br />
+      <form
+        class="form-horizontal"
+        action="/submit"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd"
+            >Upload Your Image :</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="file"
+              class="form-control"
+              placeholder="Hours Studied"
+              name="my_image"
+              id="pwd"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-danger">Submit</button>
+          </div>
+        </div>
+      </form>
+
+      {% if prediction %}
+      <img src="{{img_path}}" height="400px" width="400px" />
+      <h2>Your Prediction : {{prediction}}</h2>
+
+      {% endif %}
+    </div>
+  </body>
+</html>
